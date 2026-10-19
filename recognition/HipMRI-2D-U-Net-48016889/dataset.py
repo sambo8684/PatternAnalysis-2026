@@ -15,12 +15,27 @@ import nifti
 DEFAULT_ROOT = "/home/groups/comp3710/HipMRI_Study_open/keras_slices_data"
 NUM_CLASSES = 6
 PROSTATE_LABEL = 5
+EXPECTED_SHAPE = (256, 128)
 
 _SPLIT_DIRS = {
     "train": ("keras_slices_train", "keras_slices_seg_train"),
     "validate": ("keras_slices_validate", "keras_slices_seg_validate"),
     "test": ("keras_slices_test", "keras_slices_seg_test"),
 }
+
+# Exclude minority image shape from the dataset
+def _filter_by_shape(img_paths, seg_paths, expected=EXPECTED_SHAPE):
+    """Keep only image/mask pairs where BOTH have the expected 2D shape.
+    Only the NIfTI header is read, so this is fast."""
+    keep_imgs, keep_segs = [], []
+    for ip, sp in zip(img_paths, seg_paths):
+        if nib.load(ip).shape[:2] == expected and nib.load(sp).shape[:2] == expected:
+            keep_imgs.append(ip)
+            keep_segs.append(sp)
+    dropped = len(img_paths) - len(keep_imgs)
+    if dropped:
+        print(f"  excluded {dropped} slices with shape != {expected}")
+    return keep_imgs, keep_segs
 
 def _list_nifti(folder: str):
     files = sorted(glob(os.path.join(folder, "*.nii.gz")) + glob(os.path.join(folder, "*.nii")))
@@ -55,7 +70,7 @@ def get_split_paths(root: str, split: str):
         if key not in seg_by_key:
             raise ValueError(f"[{split}] no mask found for image {os.path.basename(p)}")
         aligned_segs.append(seg_by_key[key])
-    return img_paths, aligned_segs
+    return _filter_by_shape(img_paths, aligned_segs)
 
 
 class HipMRIDataset(Dataset):
