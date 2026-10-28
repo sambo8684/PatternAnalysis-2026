@@ -1,0 +1,10 @@
+test_loss 0.2339
+class_0 dice 0.9969 iou 0.9938
+class_1 dice 0.9861 iou 0.9726
+class_2 dice 0.9422 iou 0.8907
+class_3 dice 0.9656 iou 0.9334
+class_4 dice 0.8878 iou 0.7983
+class_5 dice 0.8828 iou 0.7901
+params 17262150
+latency_ms 2.79
+train_minutes 21.8
