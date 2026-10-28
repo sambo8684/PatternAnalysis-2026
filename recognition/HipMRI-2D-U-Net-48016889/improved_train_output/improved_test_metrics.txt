@@ -1,0 +1,16 @@
+run_name improved
+aug improved
+prostate_weight 3.0
+seed 42
+epochs 30
+test_loss 0.3357
+class_0 dice 0.9970 iou 0.9941
+class_1 dice 0.9854 iou 0.9713
+class_2 dice 0.9389 iou 0.8848
+class_3 dice 0.9669 iou 0.9359
+class_4 dice 0.8734 iou 0.7753
+class_5 dice 0.8737 iou 0.7757
+params 17262150
+latency_ms 2.97
+train_minutes 21.0
+peak_vram_mb 2992.30

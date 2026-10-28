@@ -1,0 +1,49 @@
+{
+  "n_slices": 540,
+  "n_slices_with_prostate": 195,
+  "n_patients": 3,
+  "pooled_prostate_dice": 0.8736842105369529,
+  "mean_slice_dice": 0.7727439836385533,
+  "median_slice_dice": 0.8868894616081046,
+  "frac_slices_below_0.75": 0.24615384615384617,
+  "n_slices_dice_below_0.01": 15,
+  "mean_dice_end_slices": 0.4730480666798532,
+  "n_end_slices": 54,
+  "mean_dice_interior_slices": 0.8875211433248643,
+  "n_interior_slices": 141,
+  "end_margin_slices": 2,
+  "fp_px_total": 6840,
+  "fn_px_total": 8160,
+  "pred_prostate_px_total": 58715,
+  "leak_bladder_px_total": 229,
+  "leak_rectum_px_total": 44,
+  "leak_bladder_frac_of_pred": 0.003900195861364217,
+  "empty_slices": 345,
+  "empty_slices_with_prostate_predicted": 1,
+  "classes": {
+    "0": {
+      "dice": 0.9970442537164433,
+      "iou": 0.9941059288119061
+    },
+    "1": {
+      "dice": 0.985440758664671,
+      "iou": 0.9712993766314509
+    },
+    "2": {
+      "dice": 0.9388904143111788,
+      "iou": 0.88481946348827
+    },
+    "3": {
+      "dice": 0.9668674132816097,
+      "iou": 0.9358599522579093
+    },
+    "4": {
+      "dice": 0.8734329303562844,
+      "iou": 0.7753048654644037
+    },
+    "5": {
+      "dice": 0.8736842105369529,
+      "iou": 0.7757009346129793
+    }
+  }
+}
